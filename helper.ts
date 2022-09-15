@@ -12,8 +12,8 @@ export const calcOutGivenInSwap = (
   weightIn: number,
   swapFee: BN
 ) => {
-  const numBalanceOut = Number(utilsBN.undecimalize(balanceOut, DECIMAL));
-  const numBalanceIn = Number(utilsBN.undecimalize(balanceIn, DECIMAL));
+  const numBalanceOut = utilsBN.toNumber(balanceOut);
+  const numBalanceIn = utilsBN.toNumber(balanceIn);
   const numSwapFee = utilsBN.toNumber(swapFee) / PRECISION;
   const ratioBeforeAfterBalance = numBalanceIn / (numBalanceIn + amountIn);
   const ratioInOutWeight = weightIn / weightOut;
@@ -41,8 +41,9 @@ export const calcSpotPriceExactInSwap = (
   poolPairData: PoolPairData
 ) => {
   const { balanceIn, balanceOut, weightIn, weightOut, swapFee } = poolPairData;
-  const Bi = Number(utilsBN.undecimalize(balanceIn, DECIMAL));
-  const Bo = Number(utilsBN.undecimalize(balanceOut, DECIMAL));
+  // TODO: Consider whether use decimal or not here
+  const Bi = utilsBN.toNumber(balanceIn);
+  const Bo = utilsBN.toNumber(balanceOut);
   const wi = weightIn;
   const wo = weightOut;
   const f = utilsBN.toNumber(swapFee) / PRECISION;
