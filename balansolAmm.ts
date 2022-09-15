@@ -1,8 +1,6 @@
 import { PublicKey, Keypair, Connection, Transaction } from "@solana/web3.js";
 import { PoolData, IDL } from "@senswap/balancer";
 import * as anchor from "@project-serum/anchor";
-import { BN } from "@project-serum/anchor";
-import {} from "@sentre/senhub";
 
 import {
   calcNormalizedWeight,
