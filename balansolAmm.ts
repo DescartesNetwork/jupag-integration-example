@@ -55,7 +55,7 @@ class BalansolAmm {
       this.getAccountsForUpdate()
     );
     const poolData = BALANSOL_CORE.coder.accounts.decode(
-      "Pool",
+      "pool",
       newPoolState.data
     );
     if (!poolData) {
